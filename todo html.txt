@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+    <link href="./style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>TODO</h2>
+    </div>
+    <div class="exercise-wrapper">
+        <input id="todo-item-input">
+        <button id="saveButton">Save</button>
+        <div id="todo-items"></div>
+    </div>
+    <script src="./todo.js"></script>
+</body>
+</html>

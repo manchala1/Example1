@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<head>
+    <link href="./style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <table></table>
+    </div>
+    <script src="./dommanipulation.js"></script>
+</body>
+</html>

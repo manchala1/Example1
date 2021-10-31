@@ -1,0 +1,52 @@
+var noofrows = localStorage.getItem('noofrows')
+var noofcolumns = localStorage.getItem('noofcolumns')
+var lastActiveCell
+function updateCell(){
+    var lastActiveCellId = localStorage.getItem('lastActiveCellId')
+    if(lastActiveCellId){
+        var activeCell= document.getElementById(lastActiveCellId)
+        activeCell.style.backgroundColor='#b3ffb3';
+        lastActiveCell = activeCell
+    }
+}
+function getInputFromUser(){
+    if(!noofrows){
+        noofrows=prompt('Enter the no of rows:')
+        if(noofrows){
+            localStorage.setItem('noofrows',noofrows)
+        }
+    }
+    if(!noofcolumns){
+        noofcolumns=prompt('Enter the no of columns:')
+        if(noofcolumns){
+            localStorage.setItem('noofcolumns',noofcolumns)
+        }
+    }
+}
+function getTableHtml(){
+    var rows=''
+    for(var i=0;i<noofrows;i++){
+        var columns=''
+        for(var j=0;j<noofcolumns;j++){
+            columns+=`<td class='cell' id=${i}-${j}>Cellid(${i},${j})</td>`
+        }
+        rows+=`<tr>${columns}</tr>`
+    }
+    return `<table>${rows}</table>`
+}
+getInputFromUser()
+var tableHtml = getTableHtml()
+var wrapperDiv=document.querySelector('.wrapper')
+wrapperDiv.innerHTML = tableHtml
+updateCell()
+wrapperDiv.addEventListener('click',function(event){
+    event.stopPropagation()
+    const cellClicked = event.target
+    if(lastActiveCell){
+        lastActiveCell.style.backgroundColor="white"
+    }
+    lastActiveCell = cellClicked
+    localStorage.setItem('lastCellId',lastActiveCell.id)
+    console.log(`You have clicked on ${cellClicked.innerHTML}`)
+    cellClicked.style.backgroundColor='#b3ffb3';
+})
