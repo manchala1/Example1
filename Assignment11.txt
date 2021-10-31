@@ -6,7 +6,7 @@
 </body>
 </html>
 
-var Name = prompt("what is your name");
+var Name = prompt("what is your First name");
 var height = prompt("what is your height in cm");
 var weight = prompt("what is your weight in kg");
 heightinmeters=height/100
